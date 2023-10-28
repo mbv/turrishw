@@ -1,7 +1,7 @@
 import logging
 import typing
 
-from . import mox, omnia, turris1x, utils
+from . import mox, omnia, turris1x, glmt3000, utils
 
 logger = logging.getLogger(__name__)
 
@@ -14,6 +14,7 @@ def get_model():
         "Turris 1.x": "TURRIS1X",  # new model name for Turris 1.x from DTS
         "Turris 1.0": "TURRIS1X",
         "Turris 1.1": "TURRIS1X",
+        "GL.iNet GL-MT3000": "GLMT3000",
         # we might get blue Turris exact version from u-boot, so keep the model mapping future-proof
     }
 
@@ -28,6 +29,7 @@ def get_ifaces(filter_types: typing.Optional[list[str]] = None):
         "MOX": mox,
         "OMNIA": omnia,
         "TURRIS1X": turris1x,
+        "GLMT3000": glmt3000,
     }
 
     hw_model = get_model()
