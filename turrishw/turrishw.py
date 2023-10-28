@@ -21,7 +21,9 @@ def get_model():
     model = utils.get_first_line(utils.inject_file_root('sys/firmware/devicetree/base/model'))
     model = model.rstrip("\x00")
 
-    return MODEL_MAP.get(model, "")
+    logger.warning("model: |%s|", model)
+
+    return MODEL_MAP.get(model, "GL")
 
 
 def get_ifaces(filter_types: typing.Optional[list[str]] = None):
@@ -30,6 +32,7 @@ def get_ifaces(filter_types: typing.Optional[list[str]] = None):
         "OMNIA": omnia,
         "TURRIS1X": turris1x,
         "GLMT3000": glmt3000,
+        "GL": glmt3000,
     }
 
     hw_model = get_model()
